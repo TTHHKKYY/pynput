@@ -37,12 +37,33 @@ from . import _base
 
 
 # From hidsystem/ev_keymap.h
-NX_KEYTYPE_PLAY = 16
-NX_KEYTYPE_MUTE = 7
-NX_KEYTYPE_SOUND_DOWN = 1
 NX_KEYTYPE_SOUND_UP = 0
+NX_KEYTYPE_SOUND_DOWN = 1
+NX_KEYTYPE_BRIGHTNESS_UP = 2
+NX_KEYTYPE_BRIGHTNESS_DOWN = 3
+NX_KEYTYPE_CAPS_LOCK = 4
+NX_KEYTYPE_HELP = 5
+NX_POWER_KEY = 6
+NX_KEYTYPE_MUTE = 7
+NX_UP_ARROW_KEY = 8
+NX_DOWN_ARROW_KEY = 9
+NX_KEYTYPE_NUM_LOCK = 10
+
+NX_KEYTYPE_CONTRAST_UP = 11
+NX_KEYTYPE_CONTRAST_DOWN = 12
+NX_KEYTYPE_LAUNCH_PANEL = 13
+NX_KEYTYPE_EJECT = 14
+NX_KEYTYPE_VIDMIRROR = 15
+
+NX_KEYTYPE_PLAY = 16
 NX_KEYTYPE_NEXT = 17
 NX_KEYTYPE_PREVIOUS = 18
+NX_KEYTYPE_FAST = 19
+NX_KEYTYPE_REWIND = 20
+
+NX_KEYTYPE_ILLUMINATION_UP = 21
+NX_KEYTYPE_ILLUMINATION_DOWN = 22
+NX_KEYTYPE_ILLUMINATION_TOGGLE = 23
 
 # pylint: disable=C0103; We want to use the names from the C API
 # This is undocumented, but still widely known
@@ -182,13 +203,31 @@ class Key(enum.Enum):
     space = KeyCode.from_vk(0x31, char=' ')
     tab = KeyCode.from_vk(0x30)
     up = KeyCode.from_vk(0x7E)
+    insert = KeyCode.from_vk(0x72)
+
+    media_volume_up = KeyCode._from_media(NX_KEYTYPE_SOUND_UP)
+    media_volume_down = KeyCode._from_media(NX_KEYTYPE_SOUND_DOWN)
+    brightness_up = KeyCode._from_media(NX_KEYTYPE_BRIGHTNESS_UP)
+    brightness_down = KeyCode._from_media(NX_KEYTYPE_BRIGHTNESS_DOWN)
+    power = KeyCode._from_media(NX_POWER_KEY)
+    media_volume_mute = KeyCode._from_media(NX_KEYTYPE_MUTE)
+    num_lock = KeyCode._from_media(NX_KEYTYPE_NUM_LOCK)
+
+    contrast_up = KeyCode._from_media(NX_KEYTYPE_CONTRAST_UP)
+    contrast_down = KeyCode._from_media(NX_KEYTYPE_CONTRAST_DOWN)
+    launch_panel = KeyCode._from_media(NX_KEYTYPE_LAUNCH_PANEL)
+    media_eject = KeyCode._from_media(NX_KEYTYPE_EJECT)
+    vidmirror = KeyCode._from_media(NX_KEYTYPE_VIDMIRROR)
 
     media_play_pause = KeyCode._from_media(NX_KEYTYPE_PLAY)
-    media_volume_mute = KeyCode._from_media(NX_KEYTYPE_MUTE)
-    media_volume_down = KeyCode._from_media(NX_KEYTYPE_SOUND_DOWN)
-    media_volume_up = KeyCode._from_media(NX_KEYTYPE_SOUND_UP)
-    media_previous = KeyCode._from_media(NX_KEYTYPE_PREVIOUS)
     media_next = KeyCode._from_media(NX_KEYTYPE_NEXT)
+    media_previous = KeyCode._from_media(NX_KEYTYPE_PREVIOUS)
+    media_fast = KeyCode._from_media(NX_KEYTYPE_FAST)
+    media_rewind = KeyCode._from_media(NX_KEYTYPE_REWIND)
+
+    illumination_up = KeyCode._from_media(NX_KEYTYPE_ILLUMINATION_UP)
+    illumination_down = KeyCode._from_media(NX_KEYTYPE_ILLUMINATION_DOWN)
+    illumination_toggle = KeyCode._from_media(NX_KEYTYPE_ILLUMINATION_TOGGLE)
 # pylint: enable=W0212
 
 
