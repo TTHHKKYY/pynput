@@ -205,6 +205,18 @@ class Key(enum.Enum):
     up = KeyCode.from_vk(0x7E)
     insert = KeyCode.from_vk(0x72)
 
+    # issue with the numpad being used for Controller().press() instead of
+    # the top row of numerical keys
+    one = KeyCode.from_vk(0x12, char = '1')
+    two = KeyCode.from_vk(0x13, char = '2')
+    three = KeyCode.from_vk(0x14, char = '3')
+    four = KeyCode.from_vk(0x15, char = '4')
+    five = KeyCode.from_vk(0x17, char = '5')
+    six = KeyCode.from_vk(0x16, char = '6')
+    seven = KeyCode.from_vk(0x1A, char = '7')
+    eight = KeyCode.from_vk(0x1C, char = '8')
+    nine = KeyCode.from_vk(0x19, char = '9')
+
     kp_zero = KeyCode.from_vk(0x52)
     kp_one = KeyCode.from_vk(0x53)
     kp_two = KeyCode.from_vk(0x54)
